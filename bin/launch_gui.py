@@ -1,4 +1,4 @@
-#!/user/bin/python
+#!/Users/rohanrajat/anaconda/bin/python
 
 import os
 import tkinter

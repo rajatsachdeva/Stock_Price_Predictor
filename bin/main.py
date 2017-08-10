@@ -1,4 +1,4 @@
-#!/bin/user/python
+#!/Users/rohanrajat/anaconda/bin/python
 
 '''
 	Stock Price Prediction
