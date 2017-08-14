@@ -14,4 +14,4 @@ Sample Output:
   Going in Event Loop
   
 
-![Screenshot](https://github.com/rajatsachdeva/Stock_Price_Predictor/tree/master/screen_grabs/first.jpg)
+![1](screen_grabs/first.jpg?raw=true)
