@@ -15,3 +15,11 @@ Sample Output:
   
 
 ![1](screen_grabs/first.jpg?raw=true)
+
+Enter some stock symbol like GOOG, AAPL etc.
+
+![2](screen_grabs/second.jpg?raw=true)
+
+Result will look like this :
+
+![2](screen_grabs/third.jpg?raw=true)
