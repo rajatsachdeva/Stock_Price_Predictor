@@ -25,13 +25,13 @@ import logging
 # List Stock Exchanges
 # Reference: https://en.wikipedia.org/wiki/List_of_stock_exchanges
 # You can add in the following list required stock exchanges
-stock_exchange = [ "NASDAQ", "NYSE", "CAC"]
+stock_exchange 		= [ "NASDAQ", "NYSE", "CAC"]
 
 # base url for creating the google finance link
-base_url       = "https://www.google.com/finance/historical"
+base_url       		= "https://www.google.com/finance/historical"
 
 # CSV file save location
-csv_file_location = "../csv_data/"
+csv_file_location 	= "../csv_data/"
 
 # Function to create the url for fetching the csv file from google finance
 # IN

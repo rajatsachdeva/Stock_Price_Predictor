@@ -9,7 +9,7 @@ import logging
 def get_stock_yahoo(stock, no_of_days=30):
 
 	startdate = datetime.now() - timedelta(days = no_of_days)
-	enddate = datetime.now()
+	enddate   = datetime.now()
 	logging.info("enddate = {}".format(enddate))
 	logging.info("startdate = {}".format(startdate))
 

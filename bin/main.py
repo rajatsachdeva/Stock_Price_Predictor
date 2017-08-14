@@ -41,8 +41,8 @@ def main():
 	while input("Enter (y/n)> ").lower().startswith('y'):
 
 		# Take input query from user 
-		stock = input("\nEnter Stock Symbol (Like GOOG, AAPL etc.): ")
-		days = int(input("\nEnter number of days for which data is to fetched: "))
+		stock 	= input("\nEnter Stock Symbol (Like GOOG, AAPL etc.): ")
+		days 	= int(input("\nEnter number of days for which data is to fetched: "))
 
 		result, ptweets, ntweets, predicted_price_rbf, predicted_price_keras = ut.stock_price_predictor(stock, days)
 

@@ -69,8 +69,8 @@ def fetch_secret():
 
 # Predict using SVM (Support Vector Model) RBF 
 def predict_rbf(stock, dates, prices, x):
-	dates = [ i+1 for i in range(len(prices)) ]
-	dates = np.reshape(dates,(len(dates), 1)) # converting to matrix of n X 1
+	dates 	= [ i+1 for i in range(len(prices)) ]
+	dates 	= np.reshape(dates,(len(dates), 1)) # converting to matrix of n X 1
 	svr_rbf = SVR(kernel= 'rbf', C= 1e3, gamma= 0.1) # defining the support vector regression models
 	svr_rbf.fit(dates, prices) # fitting the data points in the models
 
@@ -89,10 +89,10 @@ def predict_rbf(stock, dates, prices, x):
 # Prediction using Keras
 def predict_keras(stock):
 
-	csv_logger = CSVLogger(CSV_LOG_FILE_PATH, append=False, separator=';')
+	csv_logger 	= CSVLogger(CSV_LOG_FILE_PATH, append=False, separator=';')
 
 	# Collect data points from csv
-	dataset = []
+	dataset 	= []
 	logging.info("Getting dataset from csv file")
 	with open(CSV_FILE_PATH.format(stock)) as f:
 		for n, line in enumerate(f):
@@ -102,8 +102,8 @@ def predict_keras(stock):
 					continue
 				dataset.append(x)
 
-	dates = [ i+1 for i in range(len(dataset)) ]
-	prices = dataset[::-1]
+	dates 	= [ i+1 for i in range(len(dataset)) ]
+	prices 	= dataset[::-1]
 	dataset = np.array(dataset)
 
 	# Create dataset matrix (X=t and Y=t+1)
@@ -125,8 +125,10 @@ def predict_keras(stock):
 	# Our prediction for tomorrow
 	prediction = model.predict(np.array([dataset[0]]))
 	
-	dates = np.reshape(dates,(len(dates), 1)) # converting to matrix of n X 1
+	# converting to matrix of n X 1
+	dates = np.reshape(dates,(len(dates), 1)) 
 	
+	# Plot the prediction on graph
 	plt.plot(dates, prices, color='green', label='Price Trend')
 	plt.scatter([len(dates) + 1], prediction, color= 'red', label= 'Keras Prediction') # plotting the line made by the RBF kernel
 	plt.xlabel('Date')
@@ -136,13 +138,12 @@ def predict_keras(stock):
 	plt.savefig(OUTPUT_GRAPH_PATH + KERAS_FN_PNG.format(stock))
 
 	# convert the saved figure format from .png to .jpg
-	im = Image.open(OUTPUT_GRAPH_PATH + KERAS_FN_PNG.format(stock))
-	rgb_im = im.convert('RGB')
+	im 		= Image.open(OUTPUT_GRAPH_PATH + KERAS_FN_PNG.format(stock))
+	rgb_im 	= im.convert('RGB')
 	rgb_im.save(OUTPUT_GRAPH_PATH + KERAS_FN_JPG.format(stock),'JPEG')
 	plt.clf()
 	logging.info('The price will move from %s to %s' % (dataset[0], prediction[0][0]))
-
-	result = prediction[0][0]
+	result 	= prediction[0][0]
 	return result
 
 # get data from the csv file and store in the price/dates list
@@ -208,10 +209,10 @@ def stock_price_predictor(stock, no_of_days=30, mode='both'):
 
 	logging.info("*** Tweets fetching ***")
 	# creating object of TwitterClient Class
-	api = TwitterClient()
+	api 	= TwitterClient()
 
 	# calling function to get tweets
-	tweets = api.get_tweets(query = stock.split('.')[0], count = 200 * no_of_days)
+	tweets 	= api.get_tweets(query = stock.split('.')[0], count = 200 * no_of_days)
 
 	# picking positive tweets from tweets
 	ptweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
@@ -222,12 +223,12 @@ def stock_price_predictor(stock, no_of_days=30, mode='both'):
 	logging.info("\nPostive Tweets: {}".format(len(ptweets)))
 	logging.info("\nNegative Tweets: {}".format(len(ntweets)))
 
-	dates = []
-	prices = []
+	dates 	= []
+	prices 	= []
 	get_data(CSV_FILE_PATH.format(stock), dates, prices)
 
 	# Reverse the list entries to represent from start to today
-	prices = prices[::-1]
+	prices 	= prices[::-1]
 
 	# get the predicted prices from rbf, Keras
 	predicted_price_rbf ,predicted_price_keras = predict_price(stock, dates, prices, len(prices) + 1, mode)

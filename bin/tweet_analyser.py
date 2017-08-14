@@ -15,13 +15,12 @@ class TwitterClient (object):
 
 	def __init__(self):
 		# Get access to twitter api
-		self.auth = ut.fetch_secret()
+		self.auth 	= ut.fetch_secret()
 
 		# Authenticate with twitter
 		logging.info("Initializing handshake with twitter...")
-		self.api = tweepy.API(self.auth)
+		self.api 	= tweepy.API(self.auth)
 		logging.info("Auhentication successful")
-
 		
 	def clean_tweet(self, tweet):
 		"""
@@ -60,12 +59,12 @@ class TwitterClient (object):
 			# parsing tweets one by one
 			for tweet in fetched_tweets:
     			# empty dictionary to store required params of a tweet
-				parsed_tweet = {}
+				parsed_tweet 				= {}
 
     			# saving text of tweet
-				parsed_tweet['text'] = tweet.text
+				parsed_tweet['text'] 		= tweet.text
     			# saving sentiment of tweet
-				parsed_tweet['sentiment'] = self.get_tweet_sentiment(tweet.text)
+				parsed_tweet['sentiment'] 	= self.get_tweet_sentiment(tweet.text)
 
     			# appending parsed tweet to tweets list
 				if tweet.retweet_count > 0:
@@ -109,10 +108,10 @@ if  __name__ == '__main__':
 	myquery = input("\nEnter Query: ")
 
 	# creating object of TwitterClient Class
-	api = TwitterClient()
+	api 	= TwitterClient()
 
     # calling function to get tweets
-	tweets = api.get_tweets(query = myquery, count = 20000)
+	tweets 	= api.get_tweets(query = myquery, count = 20000)
 
 	# picking positive tweets from tweets
 	ptweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']

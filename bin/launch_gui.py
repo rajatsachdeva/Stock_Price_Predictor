@@ -29,10 +29,10 @@ class simpleapp_tk():
 
 		# Create variable to take input from text box of string type
 		self.entry_stock_name = tk.StringVar()
-		self.no_of_days = tk.StringVar()
+		self.no_of_days       = tk.StringVar()
 
 		# Link variable name with textbox entry
-		self.entry_sn = tk.Entry(master=self.master, textvariable=self.entry_stock_name)
+		self.entry_sn   = tk.Entry(master=self.master, textvariable=self.entry_stock_name)
 		self.entry_days = tk.Entry(master=self.master, textvariable=self.no_of_days)
 
 		# Place text box
@@ -46,7 +46,7 @@ class simpleapp_tk():
 		# Create Buttons
 		b_predict = tk.Button(self.master, text=u"Predict !", 
 							command=self.OnButtonClick)
-		b_quit = tk.Button(self.master, text=u"Quit", 
+		b_quit    = tk.Button(self.master, text=u"Quit", 
 							command=self.master.quit)
 
 		# Place the buttons
@@ -69,7 +69,7 @@ class simpleapp_tk():
 	def OnButtonClick(self):
 		logging.info("EVENT: Button was clicked")
 		stock = self.entry_stock_name.get().upper()
-		days = self.entry_days.get()
+		days  = self.entry_days.get()
 
 		# Validate input variable 
 		result, output, days = self.validate_text_entry(stock, days)
@@ -171,7 +171,7 @@ def main():
 	root = tk.Tk()
 
 	# Create the Tk app instance
-	app = simpleapp_tk(root)
+	app  = simpleapp_tk(root)
 
 	logging.info("Starting GUI Application")
 	logging.info("Going in Event Loop")
