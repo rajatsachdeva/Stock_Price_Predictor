@@ -14,4 +14,4 @@ Sample Output:
   Going in Event Loop
   
 
-![Alt text](https://github.com/rajatsachdeva/Stock_Price_Predictor/tree/master/screen_grabs/first.jpg?raw=true "Window Opens")
+![Screenshot](https://github.com/rajatsachdeva/Stock_Price_Predictor/tree/master/screen_grabs/first.jpg?raw=true "Window Opens")
