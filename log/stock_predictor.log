@@ -333,3 +333,9 @@
 2017-08-14 15:30:57,767 - root - DEBUG - [launch_gui.py:236 - main()] - Starting Program...
 2017-08-14 15:30:57,884 - root - DEBUG - [launch_gui.py:244 - main()] - Starting GUI Application
 2017-08-14 15:30:57,884 - root - DEBUG - [launch_gui.py:246 - main()] - Going in Event Loop
+2017-08-14 15:38:49,785 - root - DEBUG - [launch_gui.py:253 - main()] - Exting from main loop
+2017-08-14 15:38:49,786 - root - DEBUG - [launch_gui.py:257 - main()] - Cleanup started
+2017-08-14 15:38:49,786 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../csv_data with extension .csv
+2017-08-14 15:38:49,786 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../csv_data: 1
+2017-08-14 15:38:49,786 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../output_graphs with extension .png
+2017-08-14 15:38:49,786 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../output_graphs: 12

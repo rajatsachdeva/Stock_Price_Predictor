@@ -2,3 +2,4 @@ csv_data/.DS_Store
 *.pyc
 secret/auth.txt
 .DS_Store
+*.log
