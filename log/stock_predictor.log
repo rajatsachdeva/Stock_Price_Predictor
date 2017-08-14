@@ -1,372 +1,44 @@
-2017-08-14 15:03:08,019 - root - DEBUG - [launch_gui.py:236 - main()] - Starting Program...
-2017-08-14 15:03:08,151 - root - DEBUG - [launch_gui.py:244 - main()] - Starting GUI Application
-2017-08-14 15:03:08,152 - root - DEBUG - [launch_gui.py:246 - main()] - Going in Event Loop
-2017-08-14 15:03:13,152 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: IOB.BO with 30 days
-2017-08-14 15:03:13,195 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:03:13,975 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AIOB.BO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:03:13,983 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:03:14,522 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NYSE%3AIOB.BO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:03:14,530 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:03:15,057 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NSE%3AIOB.BO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:03:15,066 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:03:15,920 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=BSE%3AIOB.BO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:03:15,925 - root - DEBUG - [fetch_yahoo_csv.py:15 - get_stock_yahoo()] - enddate = 2017-08-14 15:03:15.925932
-2017-08-14 15:03:15,926 - root - DEBUG - [fetch_yahoo_csv.py:17 - get_stock_yahoo()] - startdate = 2017-07-15 15:03:15.925920
-2017-08-14 15:03:15,959 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): finance.yahoo.com
-2017-08-14 15:03:17,353 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/IOB.BO/history HTTP/1.1" 200 None
-2017-08-14 15:03:17,727 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): query1.finance.yahoo.com
-2017-08-14 15:03:18,054 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/IOB.BO?period1=1500111195&period2=1502735399&interval=1d&events=history&crumb=8ecEAFg4bsl HTTP/1.1" 200 413
-2017-08-14 15:03:18,066 - root - DEBUG - [fetch_yahoo_csv.py:21 - get_stock_yahoo()] - Got the data
-2017-08-14 15:03:18,067 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'IOB', 'count': b'50000'}
-2017-08-14 15:03:18,067 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:03:18,067 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:03:18,068 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'IOB'), ('count', '50000'), ('oauth_nonce', '96181499625387177951502703198'), ('oauth_timestamp', '1502703198'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:03:18,068 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=96181499625387177951502703198&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703198&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=IOB
-2017-08-14 15:03:18,068 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:03:18,068 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D96181499625387177951502703198%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703198%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DIOB
-2017-08-14 15:03:18,068 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: BD3AY0Ii5Ac+5vqpUCFtkQfMVKE=
-2017-08-14 15:03:18,068 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=IOB&count=50000
-2017-08-14 15:03:18,069 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="96181499625387177951502703198", oauth_timestamp="1502703198", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="BD3AY0Ii5Ac%2B5vqpUCFtkQfMVKE%3D"'}
-2017-08-14 15:03:18,069 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:03:18,070 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:03:19,196 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=IOB&count=50000 HTTP/1.1" 200 None
-2017-08-14 15:03:20,253 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 21
-2017-08-14 15:03:24,988 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:03:24,988 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:03:24,988 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:03:24,988 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:03:24,988 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:03:46,487 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: GOOG with 30 days
-2017-08-14 15:03:46,490 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:03:47,766 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AGOOG&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 200 None
-2017-08-14 15:03:47,773 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'GOOG', 'count': b'50000'}
-2017-08-14 15:03:47,773 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:03:47,773 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:03:47,774 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'GOOG'), ('count', '50000'), ('oauth_nonce', '84246573317189159091502703227'), ('oauth_timestamp', '1502703227'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:03:47,774 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=84246573317189159091502703227&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703227&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=GOOG
-2017-08-14 15:03:47,774 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:03:47,774 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D84246573317189159091502703227%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703227%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DGOOG
-2017-08-14 15:03:47,774 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: /AD8JYXjXQR4ZLGQLS9z7mU8cCY=
-2017-08-14 15:03:47,774 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=GOOG&count=50000
-2017-08-14 15:03:47,774 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="84246573317189159091502703227", oauth_timestamp="1502703227", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="%2FAD8JYXjXQR4ZLGQLS9z7mU8cCY%3D"'}
-2017-08-14 15:03:47,775 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:03:47,776 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:03:48,971 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=GOOG&count=50000 HTTP/1.1" 200 None
-2017-08-14 15:03:50,352 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 20
-2017-08-14 15:03:55,493 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:03:55,493 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:03:55,493 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:03:55,493 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:03:55,493 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:04:15,515 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: AAPL with 30 days
-2017-08-14 15:04:15,518 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:04:16,074 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AAAPL&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 200 None
-2017-08-14 15:04:16,081 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'AAPL', 'count': b'50000'}
-2017-08-14 15:04:16,081 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:04:16,081 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:04:16,082 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'AAPL'), ('count', '50000'), ('oauth_nonce', '68038052829200261371502703256'), ('oauth_timestamp', '1502703256'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:04:16,082 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=68038052829200261371502703256&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703256&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=AAPL
-2017-08-14 15:04:16,082 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:04:16,082 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D68038052829200261371502703256%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703256%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DAAPL
-2017-08-14 15:04:16,082 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: fI3ps1jbbD7EVFYATJ5Fu6ZqJ3U=
-2017-08-14 15:04:16,083 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=AAPL&count=50000
-2017-08-14 15:04:16,083 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="68038052829200261371502703256", oauth_timestamp="1502703256", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="fI3ps1jbbD7EVFYATJ5Fu6ZqJ3U%3D"'}
-2017-08-14 15:04:16,083 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:04:16,085 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:04:16,930 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=AAPL&count=50000 HTTP/1.1" 200 None
-2017-08-14 15:04:18,421 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 20
-2017-08-14 15:04:22,777 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:04:22,777 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:04:22,777 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:04:22,778 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:04:22,778 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:04:51,767 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: NASDAQ with 30 days
-2017-08-14 15:04:51,770 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:04:52,946 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3ANASDAQ&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:04:52,954 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:04:53,663 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NYSE%3ANASDAQ&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:04:53,673 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:04:54,993 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NSE%3ANASDAQ&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:04:55,004 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:04:55,915 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=BSE%3ANASDAQ&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:04:55,921 - root - DEBUG - [fetch_yahoo_csv.py:15 - get_stock_yahoo()] - enddate = 2017-08-14 15:04:55.921780
-2017-08-14 15:04:55,922 - root - DEBUG - [fetch_yahoo_csv.py:17 - get_stock_yahoo()] - startdate = 2017-07-15 15:04:55.921768
-2017-08-14 15:04:55,953 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): finance.yahoo.com
-2017-08-14 15:04:56,344 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/NASDAQ/history HTTP/1.1" 301 50
-2017-08-14 15:04:57,452 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /lookup?s=NASDAQ HTTP/1.1" 200 None
-2017-08-14 15:04:57,714 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): query1.finance.yahoo.com
-2017-08-14 15:04:58,271 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/NASDAQ?period1=1500111295&period2=1502735399&interval=1d&events=history&crumb=2V7KSSayglg HTTP/1.1" 404 111
-2017-08-14 15:04:58,406 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/NASDAQ?period1=1500111295&period2=1502735399&interval=1d&events=history&crumb=2V7KSSayglg HTTP/1.1" 404 111
-2017-08-14 15:04:58,545 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/NASDAQ?period1=1500111295&period2=1502735399&interval=1d&events=history&crumb=2V7KSSayglg HTTP/1.1" 404 111
-2017-08-14 15:04:58,688 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/NASDAQ?period1=1500111295&period2=1502735399&interval=1d&events=history&crumb=2V7KSSayglg HTTP/1.1" 404 111
-2017-08-14 15:04:58,714 - root - WARNING - [launch_gui.py:212 - generate_output()] - No data found from google finance
-2017-08-14 15:04:58,714 - root - WARNING - [launch_gui.py:214 - generate_output()] - No data found from yahoo finance
-2017-08-14 15:04:58,714 - root - WARNING - [launch_gui.py:216 - generate_output()] - Error while fetching stock (NASDAQ) data from web.Please check Stock Symbol
-2017-08-14 15:05:41,750 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: CALSREF.BO with 30 days
-2017-08-14 15:05:41,785 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:05:42,271 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3ACALSREF.BO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:05:42,279 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:05:42,865 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NYSE%3ACALSREF.BO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:05:42,874 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:05:43,468 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NSE%3ACALSREF.BO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:05:43,477 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:05:43,956 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=BSE%3ACALSREF.BO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:05:43,962 - root - DEBUG - [fetch_yahoo_csv.py:15 - get_stock_yahoo()] - enddate = 2017-08-14 15:05:43.962927
-2017-08-14 15:05:43,963 - root - DEBUG - [fetch_yahoo_csv.py:17 - get_stock_yahoo()] - startdate = 2017-07-15 15:05:43.962914
-2017-08-14 15:05:44,988 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): finance.yahoo.com
-2017-08-14 15:05:46,092 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/CALSREF.BO/history HTTP/1.1" 200 None
-2017-08-14 15:05:46,349 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): query1.finance.yahoo.com
-2017-08-14 15:05:46,670 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/CALSREF.BO?period1=1500111343&period2=1502735399&interval=1d&events=history&crumb=QP3N1w98fzR HTTP/1.1" 200 232
-2017-08-14 15:05:46,680 - root - DEBUG - [fetch_yahoo_csv.py:21 - get_stock_yahoo()] - Got the data
-2017-08-14 15:05:46,681 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'CALSREF', 'count': b'50000'}
-2017-08-14 15:05:46,681 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:05:46,681 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:05:46,682 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'CALSREF'), ('count', '50000'), ('oauth_nonce', '130561416917745430131502703346'), ('oauth_timestamp', '1502703346'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:05:46,682 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=130561416917745430131502703346&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703346&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=CALSREF
-2017-08-14 15:05:46,682 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:05:46,682 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D130561416917745430131502703346%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703346%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DCALSREF
-2017-08-14 15:05:46,682 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: stnod+gbFWg8fVkSv4hMmKDHNrM=
-2017-08-14 15:05:46,682 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=CALSREF&count=50000
-2017-08-14 15:05:46,682 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="130561416917745430131502703346", oauth_timestamp="1502703346", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="stnod%2BgbFWg8fVkSv4hMmKDHNrM%3D"'}
-2017-08-14 15:05:46,682 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:05:46,713 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:05:47,526 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=CALSREF&count=50000 HTTP/1.1" 200 254
-2017-08-14 15:05:47,531 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 21
-2017-08-14 15:05:51,773 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:05:51,773 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:05:51,773 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:05:51,773 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:05:51,773 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:06:20,968 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: EURINR with 30 days
-2017-08-14 15:06:21,001 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:06:21,522 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AEURINR&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:06:21,530 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:06:22,061 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NYSE%3AEURINR&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:06:22,069 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:06:23,058 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NSE%3AEURINR&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:06:23,065 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:06:23,585 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=BSE%3AEURINR&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:06:23,591 - root - DEBUG - [fetch_yahoo_csv.py:15 - get_stock_yahoo()] - enddate = 2017-08-14 15:06:23.591755
-2017-08-14 15:06:23,592 - root - DEBUG - [fetch_yahoo_csv.py:17 - get_stock_yahoo()] - startdate = 2017-07-15 15:06:23.591736
-2017-08-14 15:06:23,624 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): finance.yahoo.com
-2017-08-14 15:06:23,981 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/EURINR/history HTTP/1.1" 301 50
-2017-08-14 15:06:24,761 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /lookup?s=EURINR HTTP/1.1" 200 None
-2017-08-14 15:06:25,013 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): query1.finance.yahoo.com
-2017-08-14 15:06:25,329 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/EURINR?period1=1500111383&period2=1502735399&interval=1d&events=history&crumb=n3BdXILazS3 HTTP/1.1" 404 111
-2017-08-14 15:06:25,461 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/EURINR?period1=1500111383&period2=1502735399&interval=1d&events=history&crumb=n3BdXILazS3 HTTP/1.1" 404 111
-2017-08-14 15:06:25,592 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/EURINR?period1=1500111383&period2=1502735399&interval=1d&events=history&crumb=n3BdXILazS3 HTTP/1.1" 404 111
-2017-08-14 15:06:25,728 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/EURINR?period1=1500111383&period2=1502735399&interval=1d&events=history&crumb=n3BdXILazS3 HTTP/1.1" 404 111
-2017-08-14 15:06:25,753 - root - WARNING - [launch_gui.py:212 - generate_output()] - No data found from google finance
-2017-08-14 15:06:25,753 - root - WARNING - [launch_gui.py:214 - generate_output()] - No data found from yahoo finance
-2017-08-14 15:06:25,754 - root - WARNING - [launch_gui.py:216 - generate_output()] - Error while fetching stock (EURINR) data from web.Please check Stock Symbol
-2017-08-14 15:06:34,830 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: EURINR=X with 30 days
-2017-08-14 15:06:34,834 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:06:35,550 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AEURINR=X&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:06:35,558 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:06:36,369 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NYSE%3AEURINR=X&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:06:36,378 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:06:36,786 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NSE%3AEURINR=X&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:06:36,794 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:06:38,623 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=BSE%3AEURINR=X&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:06:38,630 - root - DEBUG - [fetch_yahoo_csv.py:15 - get_stock_yahoo()] - enddate = 2017-08-14 15:06:38.630323
-2017-08-14 15:06:38,630 - root - DEBUG - [fetch_yahoo_csv.py:17 - get_stock_yahoo()] - startdate = 2017-07-15 15:06:38.630310
-2017-08-14 15:06:38,663 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): finance.yahoo.com
-2017-08-14 15:06:39,064 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/EURINR=X/history HTTP/1.1" 301 60
-2017-08-14 15:06:39,851 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/EURINR=X?p=EURINR=X HTTP/1.1" 200 None
-2017-08-14 15:06:40,084 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): query1.finance.yahoo.com
-2017-08-14 15:06:40,403 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/EURINR=X?period1=1500111398&period2=1502735399&interval=1d&events=history&crumb=Qq1xCpDYG77 HTTP/1.1" 200 530
-2017-08-14 15:06:40,413 - root - DEBUG - [fetch_yahoo_csv.py:21 - get_stock_yahoo()] - Got the data
-2017-08-14 15:06:40,414 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'EURINR=X', 'count': b'50000'}
-2017-08-14 15:06:40,414 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:06:40,414 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:06:40,415 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'EURINR=X'), ('count', '50000'), ('oauth_nonce', '86601955792843989261502703400'), ('oauth_timestamp', '1502703400'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:06:40,415 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=86601955792843989261502703400&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703400&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=EURINR%3DX
-2017-08-14 15:06:40,415 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:06:40,415 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D86601955792843989261502703400%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703400%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DEURINR%253DX
-2017-08-14 15:06:40,415 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: 9x57BLAM1cPrUsG9p3/cvje07Zk=
-2017-08-14 15:06:40,416 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=EURINR%3DX&count=50000
-2017-08-14 15:06:40,416 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="86601955792843989261502703400", oauth_timestamp="1502703400", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="9x57BLAM1cPrUsG9p3%2Fcvje07Zk%3D"'}
-2017-08-14 15:06:40,416 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:06:40,417 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:06:41,285 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=EURINR%3DX&count=50000 HTTP/1.1" 200 259
-2017-08-14 15:06:41,289 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 21
-2017-08-14 15:06:45,805 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:06:45,805 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:06:45,805 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:06:45,805 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:06:45,805 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:07:12,631 - root - DEBUG - [launch_gui.py:253 - main()] - Exting from main loop
-2017-08-14 15:07:12,632 - root - DEBUG - [launch_gui.py:257 - main()] - Cleanup started
-2017-08-14 15:07:12,632 - root - DEBUG - [utils.py:157 - cleanup()] - Cleanup: Deleting all files in ../csv_data with extension .csv
-2017-08-14 15:07:12,632 - root - INFO - [utils.py:159 - cleanup()] - Number of items in ../csv_data: 8
-2017-08-14 15:07:12,632 - root - DEBUG - [utils.py:157 - cleanup()] - Cleanup: Deleting all files in ../output_graphs with extension .png
-2017-08-14 15:07:12,632 - root - INFO - [utils.py:159 - cleanup()] - Number of items in ../output_graphs: 25
-2017-08-14 15:08:48,499 - root - DEBUG - [launch_gui.py:236 - main()] - Starting Program...
-2017-08-14 15:08:48,618 - root - DEBUG - [launch_gui.py:244 - main()] - Starting GUI Application
-2017-08-14 15:08:48,618 - root - DEBUG - [launch_gui.py:246 - main()] - Going in Event Loop
-2017-08-14 15:08:57,783 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: EURUSD=X with 30 days
-2017-08-14 15:08:57,794 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:08:58,283 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AEURUSD=X&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:08:58,292 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:08:58,881 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NYSE%3AEURUSD=X&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:08:58,890 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:08:59,324 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NSE%3AEURUSD=X&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:08:59,334 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:09:01,471 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=BSE%3AEURUSD=X&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
-2017-08-14 15:09:01,477 - root - DEBUG - [fetch_yahoo_csv.py:15 - get_stock_yahoo()] - enddate = 2017-08-14 15:09:01.477829
-2017-08-14 15:09:01,478 - root - DEBUG - [fetch_yahoo_csv.py:17 - get_stock_yahoo()] - startdate = 2017-07-15 15:09:01.477815
-2017-08-14 15:09:01,549 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): finance.yahoo.com
-2017-08-14 15:09:02,004 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/EURUSD=X/history HTTP/1.1" 301 60
-2017-08-14 15:09:04,647 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/EURUSD=X?p=EURUSD=X HTTP/1.1" 200 None
-2017-08-14 15:09:05,076 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): query1.finance.yahoo.com
-2017-08-14 15:09:05,405 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/EURUSD=X?period1=1500111541&period2=1502735399&interval=1d&events=history&crumb=f7NSJD1TzNN HTTP/1.1" 200 441
-2017-08-14 15:09:05,416 - root - DEBUG - [fetch_yahoo_csv.py:21 - get_stock_yahoo()] - Got the data
-2017-08-14 15:09:05,416 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'EURUSD=X', 'count': b'50000'}
-2017-08-14 15:09:05,417 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:09:05,417 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:09:05,418 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'EURUSD=X'), ('count', '50000'), ('oauth_nonce', '165146735613967784721502703545'), ('oauth_timestamp', '1502703545'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:09:05,418 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=165146735613967784721502703545&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703545&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=EURUSD%3DX
-2017-08-14 15:09:05,419 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:09:05,419 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D165146735613967784721502703545%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703545%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DEURUSD%253DX
-2017-08-14 15:09:05,419 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: tzhd21W3iiZWbVtCgrlcDCvLj/w=
-2017-08-14 15:09:05,419 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=EURUSD%3DX&count=50000
-2017-08-14 15:09:05,419 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="165146735613967784721502703545", oauth_timestamp="1502703545", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="tzhd21W3iiZWbVtCgrlcDCvLj%2Fw%3D"'}
-2017-08-14 15:09:05,419 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:09:05,421 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:09:06,590 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=EURUSD%3DX&count=50000 HTTP/1.1" 200 None
-2017-08-14 15:09:07,269 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 21
-2017-08-14 15:09:11,352 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:09:11,352 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:09:11,352 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:09:11,352 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:09:11,353 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:09:51,979 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: YHOO with 30 days
-2017-08-14 15:09:51,981 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:09:52,797 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AYHOO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 200 None
-2017-08-14 15:09:52,803 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'YHOO', 'count': b'50000'}
-2017-08-14 15:09:52,804 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:09:52,804 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:09:52,804 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'YHOO'), ('count', '50000'), ('oauth_nonce', '38363514921861199831502703592'), ('oauth_timestamp', '1502703592'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:09:52,805 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=38363514921861199831502703592&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703592&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=YHOO
-2017-08-14 15:09:52,805 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:09:52,805 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D38363514921861199831502703592%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703592%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DYHOO
-2017-08-14 15:09:52,805 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: kTqV/31mxr7G13QW9n5YSSDtbLs=
-2017-08-14 15:09:52,805 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=YHOO&count=50000
-2017-08-14 15:09:52,806 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="38363514921861199831502703592", oauth_timestamp="1502703592", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="kTqV%2F31mxr7G13QW9n5YSSDtbLs%3D"'}
-2017-08-14 15:09:52,806 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:09:52,807 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:09:54,012 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=YHOO&count=50000 HTTP/1.1" 200 None
-2017-08-14 15:09:55,036 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 20
-2017-08-14 15:09:59,153 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:09:59,153 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:09:59,153 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:09:59,153 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:09:59,153 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:11:15,846 - root - DEBUG - [launch_gui.py:253 - main()] - Exting from main loop
-2017-08-14 15:11:15,846 - root - DEBUG - [launch_gui.py:257 - main()] - Cleanup started
-2017-08-14 15:11:15,847 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../csv_data with extension .csv
-2017-08-14 15:11:15,847 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../csv_data: 3
-2017-08-14 15:11:15,847 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../output_graphs with extension .png
-2017-08-14 15:11:15,847 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../output_graphs: 18
-2017-08-14 15:11:22,546 - root - DEBUG - [launch_gui.py:236 - main()] - Starting Program...
-2017-08-14 15:11:22,680 - root - DEBUG - [launch_gui.py:244 - main()] - Starting GUI Application
-2017-08-14 15:11:22,680 - root - DEBUG - [launch_gui.py:246 - main()] - Going in Event Loop
-2017-08-14 15:11:27,427 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: GOOG with 30 days
-2017-08-14 15:11:27,467 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:11:28,008 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AGOOG&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 200 None
-2017-08-14 15:11:28,015 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'GOOG', 'count': b'50000'}
-2017-08-14 15:11:28,015 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:11:28,015 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:11:28,016 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'GOOG'), ('count', '50000'), ('oauth_nonce', '56121677480743440251502703688'), ('oauth_timestamp', '1502703688'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:11:28,016 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=56121677480743440251502703688&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703688&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=GOOG
-2017-08-14 15:11:28,016 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:11:28,016 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D56121677480743440251502703688%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703688%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DGOOG
-2017-08-14 15:11:28,017 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: fYp2h1vF6+iNJFVf2ryUIAoHdHM=
-2017-08-14 15:11:28,017 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=GOOG&count=50000
-2017-08-14 15:11:28,017 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="56121677480743440251502703688", oauth_timestamp="1502703688", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="fYp2h1vF6%2BiNJFVf2ryUIAoHdHM%3D"'}
-2017-08-14 15:11:28,017 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:11:28,019 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:11:29,029 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=GOOG&count=50000 HTTP/1.1" 200 None
-2017-08-14 15:11:30,652 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 20
-2017-08-14 15:11:34,727 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:11:34,727 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:11:34,727 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:11:34,727 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:11:34,727 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:13:41,857 - root - DEBUG - [launch_gui.py:253 - main()] - Exting from main loop
-2017-08-14 15:13:41,857 - root - DEBUG - [launch_gui.py:257 - main()] - Cleanup started
-2017-08-14 15:13:41,857 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../csv_data with extension .csv
-2017-08-14 15:13:41,857 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../csv_data: 2
-2017-08-14 15:13:41,858 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../output_graphs with extension .png
-2017-08-14 15:13:41,858 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../output_graphs: 15
-2017-08-14 15:14:11,125 - root - DEBUG - [launch_gui.py:236 - main()] - Starting Program...
-2017-08-14 15:14:11,249 - root - DEBUG - [launch_gui.py:244 - main()] - Starting GUI Application
-2017-08-14 15:14:11,249 - root - DEBUG - [launch_gui.py:246 - main()] - Going in Event Loop
-2017-08-14 15:14:17,265 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: YHOO with 30 days
-2017-08-14 15:14:17,277 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:14:17,717 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AYHOO&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 200 None
-2017-08-14 15:14:17,724 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'YHOO', 'count': b'50000'}
-2017-08-14 15:14:17,724 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:14:17,724 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:14:17,725 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'YHOO'), ('count', '50000'), ('oauth_nonce', '8807840501312635861502703857'), ('oauth_timestamp', '1502703857'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:14:17,725 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=8807840501312635861502703857&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502703857&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=YHOO
-2017-08-14 15:14:17,725 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:14:17,725 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D8807840501312635861502703857%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502703857%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DYHOO
-2017-08-14 15:14:17,726 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: T4DaZqJP9OmJHDLr8yv0SC+C8TA=
-2017-08-14 15:14:17,726 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=YHOO&count=50000
-2017-08-14 15:14:17,726 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="8807840501312635861502703857", oauth_timestamp="1502703857", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="T4DaZqJP9OmJHDLr8yv0SC%2BC8TA%3D"'}
-2017-08-14 15:14:17,726 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:14:17,728 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:14:18,604 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=YHOO&count=50000 HTTP/1.1" 200 None
-2017-08-14 15:14:19,505 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 20
-2017-08-14 15:14:23,343 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:14:23,343 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:14:23,344 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:14:23,344 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:14:23,344 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:14:39,296 - root - DEBUG - [launch_gui.py:253 - main()] - Exting from main loop
-2017-08-14 15:14:39,296 - root - DEBUG - [launch_gui.py:257 - main()] - Cleanup started
-2017-08-14 15:14:39,296 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../csv_data with extension .csv
-2017-08-14 15:14:39,296 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../csv_data: 2
-2017-08-14 15:14:39,296 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../output_graphs with extension .png
-2017-08-14 15:14:39,296 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../output_graphs: 15
-2017-08-14 15:30:57,767 - root - DEBUG - [launch_gui.py:236 - main()] - Starting Program...
-2017-08-14 15:30:57,884 - root - DEBUG - [launch_gui.py:244 - main()] - Starting GUI Application
-2017-08-14 15:30:57,884 - root - DEBUG - [launch_gui.py:246 - main()] - Going in Event Loop
-2017-08-14 15:38:49,785 - root - DEBUG - [launch_gui.py:253 - main()] - Exting from main loop
-2017-08-14 15:38:49,786 - root - DEBUG - [launch_gui.py:257 - main()] - Cleanup started
-2017-08-14 15:38:49,786 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../csv_data with extension .csv
-2017-08-14 15:38:49,786 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../csv_data: 1
-2017-08-14 15:38:49,786 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../output_graphs with extension .png
-2017-08-14 15:38:49,786 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../output_graphs: 12
-2017-08-14 15:52:58,243 - root - DEBUG - [launch_gui.py:236 - main()] - Starting Program...
-2017-08-14 15:52:58,360 - root - DEBUG - [launch_gui.py:244 - main()] - Starting GUI Application
-2017-08-14 15:52:58,360 - root - DEBUG - [launch_gui.py:246 - main()] - Going in Event Loop
-2017-08-14 15:53:24,344 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: GOOG with 30 days
-2017-08-14 15:53:24,388 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
-2017-08-14 15:53:24,846 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3AGOOG&startdate=Jul+15+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 200 None
-2017-08-14 15:53:24,853 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'GOOG', 'count': b'50000'}
-2017-08-14 15:53:24,854 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
-2017-08-14 15:53:24,854 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
-2017-08-14 15:53:24,855 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'GOOG'), ('count', '50000'), ('oauth_nonce', '70410395968942900971502706204'), ('oauth_timestamp', '1502706204'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
-2017-08-14 15:53:24,855 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=70410395968942900971502706204&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502706204&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=GOOG
-2017-08-14 15:53:24,855 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
-2017-08-14 15:53:24,855 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D70410395968942900971502706204%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502706204%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DGOOG
-2017-08-14 15:53:24,855 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: gI3oh3qUQ78G3w72DJ0l6d5X5sk=
-2017-08-14 15:53:24,855 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=GOOG&count=50000
-2017-08-14 15:53:24,856 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="70410395968942900971502706204", oauth_timestamp="1502706204", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="gI3oh3qUQ78G3w72DJ0l6d5X5sk%3D"'}
-2017-08-14 15:53:24,856 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
-2017-08-14 15:53:24,887 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
-2017-08-14 15:53:25,902 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=GOOG&count=50000 HTTP/1.1" 200 None
-2017-08-14 15:53:26,679 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 20
-2017-08-14 15:53:30,588 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
-2017-08-14 15:53:30,588 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
-2017-08-14 15:53:30,588 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
-2017-08-14 15:53:30,588 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
-2017-08-14 15:53:30,588 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
-2017-08-14 15:54:08,174 - root - DEBUG - [launch_gui.py:253 - main()] - Exting from main loop
-2017-08-14 15:54:08,175 - root - DEBUG - [launch_gui.py:257 - main()] - Cleanup started
-2017-08-14 15:54:08,175 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../csv_data with extension .csv
-2017-08-14 15:54:08,175 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../csv_data: 2
-2017-08-14 15:54:08,175 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../output_graphs with extension .png
-2017-08-14 15:54:08,175 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../output_graphs: 15
+2017-08-14 21:55:00,401 - root - DEBUG - [launch_gui.py:236 - main()] - Starting Program...
+2017-08-14 21:55:00,549 - root - DEBUG - [launch_gui.py:244 - main()] - Starting GUI Application
+2017-08-14 21:55:00,549 - root - DEBUG - [launch_gui.py:246 - main()] - Going in Event Loop
+2017-08-14 21:55:30,057 - root - INFO - [launch_gui.py:207 - generate_output()] - Generating output for Stock: DLF.BO with 100 days
+2017-08-14 21:55:30,074 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
+2017-08-14 21:55:30,533 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NASDAQ%3ADLF.BO&startdate=May+6+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
+2017-08-14 21:55:30,542 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
+2017-08-14 21:55:30,952 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NYSE%3ADLF.BO&startdate=May+6+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
+2017-08-14 21:55:30,961 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
+2017-08-14 21:55:31,367 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=NSE%3ADLF.BO&startdate=May+6+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
+2017-08-14 21:55:31,378 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): www.google.com
+2017-08-14 21:55:31,766 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://www.google.com:443 "GET /finance/historical?q=BSE%3ADLF.BO&startdate=May+6+2017&enddate=Aug+14+2017&output=csv HTTP/1.1" 400 None
+2017-08-14 21:55:31,774 - root - DEBUG - [fetch_yahoo_csv.py:15 - get_stock_yahoo()] - enddate = 2017-08-14 21:55:31.774239
+2017-08-14 21:55:31,774 - root - DEBUG - [fetch_yahoo_csv.py:17 - get_stock_yahoo()] - startdate = 2017-05-06 21:55:31.774225
+2017-08-14 21:55:31,787 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): finance.yahoo.com
+2017-08-14 21:55:32,908 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://finance.yahoo.com:443 "GET /quote/DLF.BO/history HTTP/1.1" 200 None
+2017-08-14 21:55:33,092 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): query1.finance.yahoo.com
+2017-08-14 21:55:33,336 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://query1.finance.yahoo.com:443 "GET /v7/finance/download/DLF.BO?period1=1494087931&period2=1502735399&interval=1d&events=history&crumb=qf5LOTC6GUf HTTP/1.1" 200 1403
+2017-08-14 21:55:33,360 - root - DEBUG - [fetch_yahoo_csv.py:21 - get_stock_yahoo()] - Got the data
+2017-08-14 21:55:33,361 - tweepy.binder - INFO - [binder.py:107 - build_parameters()] - PARAMS: {'q': b'DLF', 'count': b'50000'}
+2017-08-14 21:55:33,361 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:63 - __call__()] - Signing request <PreparedRequest [GET]> using client <Client client_key=4Dt0kbyEIOkxtkgMTIls2BQh7, client_secret=****, resource_owner_key=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+2017-08-14 21:55:33,361 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:75 - __call__()] - Including body in call to sign: False
+2017-08-14 21:55:33,362 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:135 - get_oauth_signature()] - Collected params: [('q', 'DLF'), ('count', '50000'), ('oauth_nonce', '145256573528174831191502727933'), ('oauth_timestamp', '1502727933'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '4Dt0kbyEIOkxtkgMTIls2BQh7'), ('oauth_token', '889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb')]
+2017-08-14 21:55:33,362 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:140 - get_oauth_signature()] - Normalized params: count=50000&oauth_consumer_key=4Dt0kbyEIOkxtkgMTIls2BQh7&oauth_nonce=145256573528174831191502727933&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1502727933&oauth_token=889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb&oauth_version=1.0&q=DLF
+2017-08-14 21:55:33,362 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:141 - get_oauth_signature()] - Normalized URI: https://api.twitter.com/1.1/search/tweets.json
+2017-08-14 21:55:33,362 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:146 - get_oauth_signature()] - Base signing string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fsearch%2Ftweets.json&count%3D50000%26oauth_consumer_key%3D4Dt0kbyEIOkxtkgMTIls2BQh7%26oauth_nonce%3D145256573528174831191502727933%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1502727933%26oauth_token%3D889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb%26oauth_version%3D1.0%26q%3DDLF
+2017-08-14 21:55:33,363 - oauthlib.oauth1.rfc5849 - DEBUG - [__init__.py:153 - get_oauth_signature()] - Signature: g6N1wrc+lByWqoZsc5SHV6ON/TM=
+2017-08-14 21:55:33,363 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:92 - __call__()] - Updated url: https://api.twitter.com/1.1/search/tweets.json?q=DLF&count=50000
+2017-08-14 21:55:33,363 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:93 - __call__()] - Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="145256573528174831191502727933", oauth_timestamp="1502727933", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="4Dt0kbyEIOkxtkgMTIls2BQh7", oauth_token="889074157979185152-4oQcDMLCqxnzyEBSYJ3NjcQyUbyTryb", oauth_signature="g6N1wrc%2BlByWqoZsc5SHV6ON%2FTM%3D"'}
+2017-08-14 21:55:33,363 - requests_oauthlib.oauth1_auth - DEBUG - [oauth1_auth.py:94 - __call__()] - Updated body: None
+2017-08-14 21:55:33,375 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:809 - _new_conn()] - Starting new HTTPS connection (1): api.twitter.com
+2017-08-14 21:55:34,341 - requests.packages.urllib3.connectionpool - DEBUG - [connectionpool.py:400 - _make_request()] - https://api.twitter.com:443 "GET /1.1/search/tweets.json?q=DLF&count=50000 HTTP/1.1" 200 None
+2017-08-14 21:55:35,037 - root - INFO - [launch_gui.py:29 - predict_price()] - Length of price list is 70
+2017-08-14 21:55:46,556 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IHDR' 16 13
+2017-08-14 21:55:46,557 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'sBIT' 41 4
+2017-08-14 21:55:46,558 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:538 - _open()] - b'sBIT' 41 4 (unknown)
+2017-08-14 21:55:46,558 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'pHYs' 57 9
+2017-08-14 21:55:46,558 - PIL.PngImagePlugin - DEBUG - [PngImagePlugin.py:131 - call()] - STREAM b'IDAT' 78 8192
+2017-08-14 21:57:12,511 - root - DEBUG - [launch_gui.py:253 - main()] - Exting from main loop
+2017-08-14 21:57:12,511 - root - DEBUG - [launch_gui.py:257 - main()] - Cleanup started
+2017-08-14 21:57:12,512 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../csv_data with extension .csv
+2017-08-14 21:57:12,512 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../csv_data: 2
+2017-08-14 21:57:12,513 - root - DEBUG - [utils.py:156 - cleanup()] - Cleanup: Deleting all files in ../output_graphs with extension .png
+2017-08-14 21:57:12,513 - root - INFO - [utils.py:158 - cleanup()] - Number of items in ../output_graphs: 15

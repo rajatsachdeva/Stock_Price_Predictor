@@ -5,3 +5,6 @@ secret/auth.txt
 *.log
 *.csv
 *.log
+*.csv
+*.log
+*.csv
