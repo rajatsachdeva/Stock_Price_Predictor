@@ -9,3 +9,4 @@ secret/auth.txt
 *.log
 *.csv
 log/stock_predictor.log
+junk/*
