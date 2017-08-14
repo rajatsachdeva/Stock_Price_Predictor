@@ -1,30 +1,48 @@
 # This file contains all the utility methods
 
-#!/bin/user/python
+#!/Users/rohanrajat/anaconda/bin/python
 
 #import required libraries
-import csv
-import os
-import signal
-import sys
-import time
+import csv, os, signal, sys, time, logging
+# fetch csv related imports
+import fetch_csv as fc
+import fetch_yahoo_csv as fcy
+# os functions related
 from os import listdir
 from os.path import join
+# Pillow package imports
 from PIL import Image, ImageTk
+# tweet related imports
+from tweet_analyser import TwitterClient
 from tweepy import OAuthHandler
 from tweepy import Stream
+# matplotlib imports
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import numpy as np
+# sklearn imports
 from sklearn.svm import SVR
+# keras imports
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.callbacks import CSVLogger
-import logging
 
 # Secret File Path
-SECRETFILEPATH="../secret/auth.txt"
+SECRET_FILE_PATH 	= "../secret/auth.txt"
+
+# csv Path file
+CSV_FILE_PATH 		= "../csv_data/{}.csv"
+CSV_LOG_FILE_PATH	= "../log/log.csv"
+
+# Output Graph Path
+OUTPUT_GRAPH_PATH 	= "../output_graphs/"
+
+# RBF/KERAS image Name
+RBF_FN 				= "{}_rbf.png"
+KERAS_FN_PNG 		= "{}_keras.png"
+KERAS_FN_JPG		= "{}_keras.jpg"
+TREND_FN			= "{}_trend.png"
 
 # For Suppressing the warnings 
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
@@ -32,7 +50,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 # Fetch the access token and consumer key from secret folder
 def fetch_secret():
 	logging.info("Fetching Secret...")
-	f = open(SECRETFILEPATH, 'r')
+	f = open(SECRET_FILE_PATH, 'r')
 	authdict = {}
 
 	for data in f.readlines():
@@ -49,11 +67,6 @@ def fetch_secret():
 	auth.set_access_token(access_token, access_token_secret)
 	return auth
 
-# Function to plot the price trend for given stock 
-# and save in ../output_graphs/stock.jpg
-def plot_price_trend(stock, prices):
-	pass
-
 # Predict using SVM (Support Vector Model) RBF 
 def predict_rbf(stock, dates, prices, x):
 	dates = [ i+1 for i in range(len(prices)) ]
@@ -68,20 +81,20 @@ def predict_rbf(stock, dates, prices, x):
 	plt.ylabel('Price')
 	plt.title('Support Vector Regression')
 	plt.legend()
-	plt.savefig("../output_graphs/{}_rbf.png".format(stock))
-	logging.info("Graph saved as {}_rbf.jpg in ../output_graphs".format(stock))
+	plt.savefig(OUTPUT_GRAPH_PATH + RBF_FN.format(stock))
+	logging.info("Graph saved as {}_rbf.png in ../output_graphs".format(stock))
 	logging.info("RBF: Last price was {} , predicted price is {}".format(prices[len(prices)-1], svr_rbf.predict(x)[0]))
 	return svr_rbf.predict(x)[0]
 
 # Prediction using Keras
 def predict_keras(stock):
 
-	csv_logger = CSVLogger('../log/log.csv', append=False, separator=';')
+	csv_logger = CSVLogger(CSV_LOG_FILE_PATH, append=False, separator=';')
 
 	# Collect data points from csv
 	dataset = []
 	logging.info("Getting dataset from csv file")
-	with open("../csv_data/{}.csv".format(stock)) as f:
+	with open(CSV_FILE_PATH.format(stock)) as f:
 		for n, line in enumerate(f):
 			if n != 0:
 				x = line.split(',')[1]
@@ -118,13 +131,14 @@ def predict_keras(stock):
 	plt.scatter([len(dates) + 1], prediction, color= 'red', label= 'Keras Prediction') # plotting the line made by the RBF kernel
 	plt.xlabel('Date')
 	plt.ylabel('Price')
-	plt.title('Tensor Flow Method')
+	plt.title('Price Prediction for {}'.format(stock))
 	plt.legend()
-	plt.savefig("../output_graphs/{}_keras.png".format(stock))
+	plt.savefig(OUTPUT_GRAPH_PATH + KERAS_FN_PNG.format(stock))
+
 	# convert the saved figure format from .png to .jpg
-	im = Image.open("../output_graphs/{}_keras.png".format(stock))
+	im = Image.open(OUTPUT_GRAPH_PATH + KERAS_FN_PNG.format(stock))
 	rgb_im = im.convert('RGB')
-	rgb_im.save("../output_graphs/{}_keras.jpg".format(stock),'JPEG')
+	rgb_im.save(OUTPUT_GRAPH_PATH + KERAS_FN_JPG.format(stock),'JPEG')
 	plt.clf()
 	logging.info('The price will move from %s to %s' % (dataset[0], prediction[0][0]))
 
@@ -153,3 +167,80 @@ def cleanup(directory, extension):
 	for item in contents:
 		if item.endswith(extension):
 			os.remove(join(directory, item))
+
+def predict_price(stock, dates, price_list, x, mode='both'):
+	logging.info("Length of price list is {}".format(len(price_list)))
+	# Plot Trend for stock 
+	plt.plot(price_list)
+	plt.xlabel('Date')
+	plt.ylabel('Price')
+	plt.title('{} Price Trend'.format(stock))
+	plt.savefig(OUTPUT_GRAPH_PATH + TREND_FN.format(stock))
+	plt.clf()
+	logging.info(TREND_FN.format(stock) + " image saved in " + OUTPUT_GRAPH_PATH)
+	
+	if mode == 'both':
+		logging.info('Getting prediction from both models')
+
+		logging.info ('*******  RBF ********')
+		predicted_price_rbf = predict_rbf(stock, dates, price_list, x)
+
+		logging.info ('******* TENSORFLOW ********')
+		predicted_price_keras = predict_keras(stock)
+
+		# return predictions
+		return predicted_price_rbf, predicted_price_keras
+
+def stock_price_predictor(stock, no_of_days=30, mode='both'):
+	# Positive/Negative Tweets list
+	ptweets 				= []
+	ntweets 				= []
+	# Prediction variables
+	predicted_price_rbf 	= 0.0
+	predicted_price_keras	= 0.0
+
+	# Fetch stock csv from google finance if not present there, then from yahoo finance
+	if not fc.fetch_stock_csv(stock, no_of_days):
+		logging.warning("Error while fetching stock ({}) data from google.Trying from yahoo".format(stock))
+		if not fcy.get_stock_yahoo(stock, no_of_days):
+			logging.warning("Error while fetching stock from yahoo")
+			return False, ptweets, ntweets, predicted_price_rbf, predicted_price_keras
+
+	logging.info("*** Tweets fetching ***")
+	# creating object of TwitterClient Class
+	api = TwitterClient()
+
+	# calling function to get tweets
+	tweets = api.get_tweets(query = stock.split('.')[0], count = 200 * no_of_days)
+
+	# picking positive tweets from tweets
+	ptweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
+
+	# picking negative tweets from tweets
+	ntweets = [tweet for tweet in tweets if tweet['sentiment'] == 'negative']
+
+	logging.info("\nPostive Tweets: {}".format(len(ptweets)))
+	logging.info("\nNegative Tweets: {}".format(len(ntweets)))
+
+	dates = []
+	prices = []
+	get_data(CSV_FILE_PATH.format(stock), dates, prices)
+
+	# Reverse the list entries to represent from start to today
+	prices = prices[::-1]
+
+	# get the predicted prices from rbf, Keras
+	predicted_price_rbf ,predicted_price_keras = predict_price(stock, dates, prices, len(prices) + 1, mode)
+	logging.info("\n*** RESULT ***\nPrediction from RBF : {}".format(predicted_price_rbf))
+	logging.info("Prediction from keras: {}".format(predicted_price_keras))
+	# return result
+	return True, ptweets, ntweets, predicted_price_rbf, predicted_price_keras 
+
+def get_recent_price(stock):
+	logging.info("fetching the last open price for {}".format(stock))
+	with open(CSV_FILE_PATH.format(stock)) as f:
+		for n, line in enumerate(f):
+			if n != 0:
+				return float(line.split(',')[1])
+
+

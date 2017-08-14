@@ -1,88 +1,10 @@
 #!/Users/rohanrajat/anaconda/bin/python
 
-import os
 import tkinter as tk
-import fetch_csv as fc
-import fetch_yahoo_csv as fcy
 import utils as ut 
-from tweet_analyser import TwitterClient
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
 from PIL import Image, ImageTk
 import log_init
 import logging
-
-ptweets = []
-ntweets = []
-
-# Prediction prices
-predicted_price_rbf 	= 0.0
-predicted_price_keras 	= 0.0
-
-def predict_price(stock, dates, price_list, x, mode='both'):
-	global predicted_price_rbf
-	global predicted_price_keras
-
-	y = price_list
-	logging.info("Length of price list is {}".format(len(price_list)))
-	
-	plt.plot(y)
-	plt.xlabel('Date')
-	plt.ylabel('Price')
-	plt.title('{} Price Trend'.format(stock))
-	plt.savefig("../output_graphs/{}_trend.png".format(stock))
-	plt.clf()
-	
-	if mode == 'both':
-		logging.info('Getting prediction from both models')
-
-		logging.info ('\t\t*******\t\t  RBF \t\t********')
-		predicted_price_rbf = ut.predict_rbf(stock, dates, price_list, x)
-
-		logging.info ('\n\n\t\t*******\t\t  TENSORFLOW \t\t********')
-		predicted_price_keras = ut.predict_keras(stock)
-
-def stock_price_predictor(stock, no_of_days=30, mode='both'):
-	global ptweets
-	global ntweets
-	global predicted_prices
-
-	# Fetch stock csv from google finance if not present there, then from yahoo finance
-	if not fc.fetch_stock_csv(stock, no_of_days):
-		logging.warning("Error while fetching stock ({}) data from google.Trying from yahoo".format(stock))
-		if not fcy.get_stock_yahoo(stock, no_of_days):
-			logging.warning("Error while fetching stock from yahoo")
-			return False
-
-	logging.info("*** Tweets fetching ***")
-	# creating object of TwitterClient Class
-	api = TwitterClient()
-
-	# calling function to get tweets
-	tweets = api.get_tweets(query = stock.split('.')[0], count = 50000)
-
-	# picking positive tweets from tweets
-	ptweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
-
-	# picking negative tweets from tweets
-	ntweets = [tweet for tweet in tweets if tweet['sentiment'] == 'negative']
-
-	logging.info("\nPostive Tweets: {}".format(len(ptweets)))
-	logging.info("\nNegative Tweets: {}".format(len(ntweets)))
-
-	dates = []
-	prices = []
-	ut.get_data("../csv_data/{}.csv".format(stock), dates, prices)
-
-	# Reverse the list entries to represent from start to today
-	prices = prices[::-1]
-
-	# get the predicted prices from rbf, Keras
-	predict_price(stock, dates, prices, len(prices) + 1, mode)
-	logging.info("\nPrediction from RBF : {}".format(predicted_price_rbf))
-	return True
 
 # Create a Class for GUI
 class simpleapp_tk():
@@ -203,11 +125,23 @@ class simpleapp_tk():
 
 	# Function to generate output
 	def generate_output(self, stock , days):
+		# Positive/Negative Tweets list
+		ptweets 				= []
+		ntweets 				= []
+		# Prediction variables
+		predicted_price_rbf 	= 0.0
+		predicted_price_keras	= 0.0
+		# resultant variable
+		result 					= False
+
 		logging.info("Generating output for Stock: {} with {} days".format(stock, days))
 		self.labelVariable.set("Please wait while we fetch response")
 
+		# get the result from stock price pridector
+		result, ptweets, ntweets, predicted_price_rbf, predicted_price_keras = ut.stock_price_predictor(stock, days)
+
 		# call the Stock Predictor
-		if not stock_price_predictor(stock, days):
+		if not result:
 			logging.warning("No data found from google finance")
 			# Fetch from yahoo finance now
 			logging.warning("No data found from yahoo finance")
@@ -217,11 +151,12 @@ class simpleapp_tk():
 			return 
 
 		self.labelVariable.set("Postive Tweets: {}".format(len(ptweets))
-			+ "\tNegative Tweets: {}".format(len(ntweets))
+			+ "\t\tNegative Tweets: {}".format(len(ntweets))
+			+ "\nOpening Price for {}: {}".format(stock, ut.get_recent_price(stock))
 			+"\nPredicted Price from RBF: {}".format(predicted_price_rbf)
 			+"\nPredicted Price from KERAS: {}".format(predicted_price_keras))
 
-		result_graph = ImageTk.PhotoImage(file = '../output_graphs/{}_keras.jpg'.format(stock))
+		result_graph = ImageTk.PhotoImage(file = ut.OUTPUT_GRAPH_PATH + ut.KERAS_FN_JPG.format(stock))
 		self.label_graph = tk.Label(self.master, image=result_graph)
 		self.label_graph.image = result_graph 
 		self.label_graph.grid(row = 6, column = 0, columnspan = 10, sticky="NEWS")
