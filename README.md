@@ -38,6 +38,7 @@ Enter number of days for which data is to fetched: 40
 **** RESULT *****
 
 Postive Tweets: 22
+
 Negative Tweets: 4
 
  ** Prediction **
@@ -46,4 +47,5 @@ Current price: 156.6
 RBF: 148.51054832412675
 KERAS: 155.87838745117188
 Enter (y/n)> n
+
 Exiting from program...
