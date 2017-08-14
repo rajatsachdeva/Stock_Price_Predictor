@@ -5,16 +5,17 @@ import os.path
 
 FORMAT = '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)s - %(funcName)s()] - %(message)s'
 
-def initialize_logger(output_dir):
+def initialize_logger(output_dir, enable_console_output=True):
 	logger = logging.getLogger()
 	logger.setLevel(logging.DEBUG)
 	 
-	# create console handler and set level to info
-	handler = logging.StreamHandler()
-	handler.setLevel(logging.INFO)
-	formatter = logging.Formatter(FORMAT)
-	handler.setFormatter(formatter)
-	logger.addHandler(handler)
+	if enable_console_output:
+		# create console handler and set level to info
+		handler = logging.StreamHandler()
+		handler.setLevel(logging.INFO)
+		formatter = logging.Formatter(FORMAT)
+		handler.setFormatter(formatter)
+		logger.addHandler(handler)
  
 	# create error file handler and set level to error
 	handler = logging.FileHandler(os.path.join(output_dir, "error.log"),"w", encoding=None, delay="true")

@@ -34,7 +34,7 @@ def main():
 	
 	# store the original SIGINT handler
 	original_sigint = signal.getsignal(signal.SIGINT)
-	log_init.initialize_logger('../log')
+	log_init.initialize_logger('../log', False)
 
 	print("Starting Stock Price Prediction Program...\n")
 	# Go in Event Loop
@@ -50,8 +50,9 @@ def main():
 			print("\n**** RESULT *****\n")
 			print("Postive Tweets: {}".format(len(ptweets)))
 			print("Negative Tweets: {}".format(len(ntweets)))
-			print("Current price: {}".format(ut.get_recent_price(stock)))
+			
 			print("\n ** Prediction **\n")
+			print("Current price: {}".format(ut.get_recent_price(stock)))
 			print("RBF: {}".format(predicted_price_rbf))
 			print("KERAS: {}".format(predicted_price_keras))
 		else:
