@@ -1,5 +1,16 @@
 # Stock_Price_Predictor
 
+Usage for the program:
+Save Your twitter access keys/consumer key in a file name auth.txt in directory ../secret/ relative from execution directory
+in following format:
+
+*** auth.txt ***
+
+access_token=XXXXXXX
+access_token_secret=XXXXXXXX
+consumer_key=XXXXXXXXX
+consumer_secret=XXXXXXXXXX
+
 Sample Output for GUI:
   $ ./launch_gui.py
   
