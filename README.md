@@ -18,8 +18,8 @@ Sample Output:
 
 Enter some stock symbol like GOOG, AAPL etc.
 
-![2](screen_grabs/second.jpg?raw=true)
+![2](screen_grabs/second.png?raw=true)
 
 Result will look like this :
 
-![2](screen_grabs/third.jpg?raw=true)
+![2](screen_grabs/third.png?raw=true)
