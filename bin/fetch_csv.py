@@ -20,6 +20,8 @@ import csv
 import requests
 from datetime import datetime
 from datetime import timedelta
+import logging
+logger = logging.getLogger(__name__)
 
 # List Stock Exchanges
 # Reference: https://en.wikipedia.org/wiki/List_of_stock_exchanges
@@ -39,7 +41,7 @@ csv_file_location = "../csv_data/"
 # 	- startdate:		Start date from which data is to be fetched 
 # 	- enddate:			End date to which data is to be fetched
 #
-def make_url(_stock, _stock_exchange = "NASDAQ"):
+def make_url(_stock, _stock_exchange = "NASDAQ", no_of_days=30):
 	global base_url
 
 	# Get the current date in format Mon+day+year
@@ -47,7 +49,7 @@ def make_url(_stock, _stock_exchange = "NASDAQ"):
 	print("enddate = {}".format(enddate))
 
 	# Get 30 days before date from today in format Mon+day+year
-	startdate = datetime.now() - timedelta(days = 30)
+	startdate = datetime.now() - timedelta(days = no_of_days)
 	startdate = startdate.strftime('%b+%-d+%Y')
 	print("startdate = {}".format(startdate))
 
@@ -75,11 +77,11 @@ def check_if_fetched_stock_data(csvfilename):
 			f.close()
 			return True
 
-def fetch_stock_csv(stock):
+def fetch_stock_csv(stock, no_of_days):
 	for se in stock_exchange:
 		# construct url
 		print("Constructing url for stock: {} with stock exchange as {}".format(stock, se))
-		url = make_url(_stock = stock, _stock_exchange = str(se) )
+		url = make_url(_stock = stock, _stock_exchange = str(se), no_of_days = no_of_days)
 		print("Fetching information for {} from \nurl: {}".format(stock, url))
 
 		# Fetch data from constructed url
@@ -97,9 +99,11 @@ def fetch_stock_csv(stock):
 
 	if Found:
 		print("csv file is saved at location " + csvfilename)
+		return True
 	else:
 		print("ERROR: Please validate the stock symbol/Update the Stock Exchange list...")
+		return False
 			
-
-#stock = input("Enter Stock Symbol (Like: GOOG, AAPL, etc): ").upper()
-#fetch_stock_csv(stock)
+if __name__ == "__main__":
+	stock = input("Enter Stock Symbol (Like: GOOG, AAPL, etc): ").upper()
+	fetch_stock_csv(stock)

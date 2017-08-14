@@ -9,23 +9,20 @@ import re
 import tweepy
 from tweepy import OAuthHandler
 from textblob import TextBlob
-
-# Open the file
-#f=open(ut.FILEPATH, 'w')
+import logging
+logger = logging.getLogger(__name__)
 
 class TwitterClient (object):
 
 	def __init__(self):
 		# Get access to twitter api
 		self.auth = ut.fetch_secret()
-		# Check for Error
-		if self.auth == -1:
-			print("Error: Authentication Failure..\nShutting Down...")
-			sys.exit(-1)
 
 		# create tweepy API object to fetch tweets
-		self.api = tweepy.API(self.auth)
+		print ("Initializing handshake with twitter...")
 
+		self.api = tweepy.API(self.auth)
+		
 	def clean_tweet(self, tweet):
 		"""
 		Utility function to clean tweet text by removing links, special characters
@@ -81,7 +78,6 @@ class TwitterClient (object):
 			# return parsed tweets
 			return tweets
 
-
 		except tweepy.TweepError as e:
 		# print error (if any)
 			print("Error : " + str(e))
@@ -106,12 +102,12 @@ def exit_gracefully(signum, frame):
 		sys.exit(1)
 
 # restore the exit gracefully handler here    
-signal.signal(signal.SIGINT, exit_gracefully)
+#signal.signal(signal.SIGINT, exit_gracefully)
 
 if  __name__ == '__main__':
 
 	# store the original SIGINT handler
-	original_sigint = signal.getsignal(signal.SIGINT)
+	#original_sigint = signal.getsignal(signal.SIGINT)
 
 	# Take input query from user 
 	myquery = input("\nEnter Query: ")
@@ -146,4 +142,3 @@ if  __name__ == '__main__':
 	print("\n\nNegative tweets:")
 	for tweet in ntweets[:10]:
 		print(tweet['text'])
-
