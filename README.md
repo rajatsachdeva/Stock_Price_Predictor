@@ -7,8 +7,11 @@ in following format:
 *** auth.txt ***
 
 access_token=XXXXXXX
+
 access_token_secret=XXXXXXXX
+
 consumer_key=XXXXXXXXX
+
 consumer_secret=XXXXXXXXXX
 
 Sample Output for GUI:
