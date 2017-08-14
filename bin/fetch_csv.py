@@ -21,7 +21,6 @@ import requests
 from datetime import datetime
 from datetime import timedelta
 import logging
-logger = logging.getLogger(__name__)
 
 # List Stock Exchanges
 # Reference: https://en.wikipedia.org/wiki/List_of_stock_exchanges

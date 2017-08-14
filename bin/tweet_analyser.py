@@ -10,7 +10,6 @@ import tweepy
 from tweepy import OAuthHandler
 from textblob import TextBlob
 import logging
-logger = logging.getLogger(__name__)
 
 class TwitterClient (object):
 

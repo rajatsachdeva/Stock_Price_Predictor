@@ -9,7 +9,6 @@ import time
 import fetch_csv as fc
 from tweet_analyser import TwitterClient
 import logging
-logger = logging.getLogger(__name__)
 
 # Signal Handler
 def exit_gracefully(signum, frame):

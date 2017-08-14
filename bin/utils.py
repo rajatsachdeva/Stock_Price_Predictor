@@ -22,7 +22,6 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.callbacks import CSVLogger
 import logging
-logger = logging.getLogger(__name__)
 
 # Secret File Path
 SECRETFILEPATH="../secret/auth.txt"
@@ -58,7 +57,6 @@ def plot_price_trend(stock, prices):
 # Predict using SVM (Support Vector Model) RBF 
 def predict_rbf(stock, dates, prices, x):
 	dates = [ i+1 for i in range(len(prices)) ]
-	#print("RBF: dates: ", dates)
 	dates = np.reshape(dates,(len(dates), 1)) # converting to matrix of n X 1
 	svr_rbf = SVR(kernel= 'rbf', C= 1e3, gamma= 0.1) # defining the support vector regression models
 	svr_rbf.fit(dates, prices) # fitting the data points in the models
@@ -71,7 +69,6 @@ def predict_rbf(stock, dates, prices, x):
 	plt.title('Support Vector Regression')
 	plt.legend()
 	plt.savefig("../output_graphs/{}_rbf.png".format(stock))
-	#plt.clf()
 	print("Graph saved as {}_rbf.jpg in ../output_graphs".format(stock))
 	print("RBF: Last price was {} , predicted price is {}".format(prices[len(prices)-1], svr_rbf.predict(x)[0]))
 	return svr_rbf.predict(x)[0]
@@ -96,7 +93,6 @@ def predict_keras(stock):
 	dates = [ i+1 for i in range(len(dataset)) ]
 	prices = dataset[::-1]
 	dataset = np.array(dataset)
-	#print("dataset = ",dataset)
 
 	# Create dataset matrix (X=t and Y=t+1)
 	def create_dataset(dataset):
@@ -152,8 +148,7 @@ def get_data(filename, dates, prices):
 
 # Function to clean/Delete particular type of files in a directory
 def cleanup(directory, extension):
-	print("Cleanup: Deleting all files in {} with extension {}".format(directory, extension))
-	logging.debug("Cleanup: Deleting all files in {} with extension {}".format(directory, extension))
+	logging.info("Cleanup: Deleting all files in {} with extension {}".format(directory, extension))
 	contents = os.listdir(directory)
 	logging.info("Number of items in {}: {}".format(directory, len(contents)))
 	for item in contents:

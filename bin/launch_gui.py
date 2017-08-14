@@ -11,8 +11,8 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from PIL import Image, ImageTk
+import log_init
 import logging
-logger = logging.getLogger(__name__)
 
 ptweets = []
 ntweets = []
@@ -36,12 +36,12 @@ def predict_price(stock, dates, price_list, x, mode='both'):
 	plt.clf()
 	
 	if mode == 'both':
-		print ('Getting prediction from both models')
+		logging.info('Getting prediction from both models')
 
-		print ('\t\t*******\t\t  RBF \t\t********')
+		logging.info ('\t\t*******\t\t  RBF \t\t********')
 		predicted_price_rbf = ut.predict_rbf(stock, dates, price_list, x)
 
-		print ('\n\n\t\t*******\t\t  TENSORFLOW \t\t********')
+		logging.info ('\n\n\t\t*******\t\t  TENSORFLOW \t\t********')
 		predicted_price_keras = ut.predict_keras(stock)
 
 def stock_price_predictor(stock, no_of_days=30, mode='both'):
@@ -51,10 +51,12 @@ def stock_price_predictor(stock, no_of_days=30, mode='both'):
 
 	# Fetch stock csv from google finance if not present there, then from yahoo finance
 	if not fc.fetch_stock_csv(stock, no_of_days):
-		print("Error while fetching stock ({}) data from web.Please check Stock Symbol".format(stock))
+		logging.warning("Error while fetching stock ({}) data from google.Trying from yahoo".format(stock))
 		if not fcy.get_stock_yahoo(stock, no_of_days):
+			logging.warning("Error while fetching stock from yahoo")
 			return False
 
+	logging.info("*** Tweets fetching ***")
 	# creating object of TwitterClient Class
 	api = TwitterClient()
 
@@ -67,8 +69,8 @@ def stock_price_predictor(stock, no_of_days=30, mode='both'):
 	# picking negative tweets from tweets
 	ntweets = [tweet for tweet in tweets if tweet['sentiment'] == 'negative']
 
-	print("\nPostive Tweets: {}".format(len(ptweets)))
-	print("\nNegative Tweets: {}".format(len(ntweets)))
+	logging.info("\nPostive Tweets: {}".format(len(ptweets)))
+	logging.info("\nNegative Tweets: {}".format(len(ntweets)))
 
 	dates = []
 	prices = []
@@ -99,7 +101,7 @@ class simpleapp_tk():
 	# Initialize Function will have 
 	# Buttons, widgets etc.
 	def initialize(self):
-		print("Initializing...")
+		logging.info("Initializing GUI using tkinter")
 
 		# Create label for Text box
 		self.label1 = tk.Label(master=self.master, text='Stock Symbol ').grid(row=0, sticky='W')
@@ -142,20 +144,23 @@ class simpleapp_tk():
 
 		self.master.resizable(True,False)
 
+		logging.info("GUI init successful")
+
 	def OnButtonClick(self):
 		stock = self.entry_stock_name.get().upper()
 		days = self.entry_days.get()
+
+		logging.info("EVENT: Button was clicked")
 
 		# Validate input variable 
 		result, output, days = self.validate_text_entry(stock, days)
 
 		if result:
-			print("stock name is {}".format(stock))
-			print("Number of days :{}".format(days))
+			logging.info("stock name is {}".format(stock))
+			logging.info("Number of days :{}".format(days))
 
+			logging.debug("send parameters for computation")
 			self.generate_output(stock, days)
-
-			print ("You clicked the button !")
 
 		else: 
 			self.labelVariable.set(output)
@@ -203,7 +208,6 @@ class simpleapp_tk():
 
 	# Function to generate output
 	def generate_output(self, stock , days):
-		print("Generating output for Stock: {} with {} days".format(stock, days))
 		logging.info("Generating output for Stock: {} with {} days".format(stock, days))
 		self.labelVariable.set("Please wait while we fetch response")
 
@@ -218,7 +222,7 @@ class simpleapp_tk():
 			return 
 
 		self.labelVariable.set("Postive Tweets: {}".format(len(ptweets))
-			+ "\nNegative Tweets: {}".format(len(ntweets))
+			+ "\tNegative Tweets: {}".format(len(ntweets))
 			+"\nPredicted Price from RBF: {}".format(predicted_price_rbf)
 			+"\nPredicted Price from KERAS: {}".format(predicted_price_keras))
 
@@ -229,36 +233,27 @@ class simpleapp_tk():
 
 # Create Main()
 def main():
-	# Clear previous logging before starting the Application
-	with open('../log/stock_predictor.log', 'w'):
-		pass
+	# initialize logger
+	log_init.initialize_logger('../log')
 
-	FORMAT = '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)s - %(funcName)s()] - %(message)s'
-	logging.basicConfig(filename = "../log/stock_predictor.log", level=logging.DEBUG, format=FORMAT)
-
-	print("Starting Program...")
-	logging.debug("Starting Program...")
+	logging.info("Starting Program...")
 
 	root = tk.Tk()
 
 	# Create the Tk app instance
 	app = simpleapp_tk(root)
 
-	print("Starting GUI Application")
-	logging.debug("Starting GUI Application")
-	print("Going in Event Loop")
-	logging.debug("Going in Event Loop")
+	logging.info("Starting GUI Application")
+	logging.info("Going in Event Loop")
 
 	# Start the main loop
 	root.mainloop()
 
 	# Exit from mainloop
-	print("Exting from main loop")
-	logging.debug("Exting from main loop")
+	logging.info("Exting from main loop")
 
 	# Initiate Cleanup for unused files
-	print("Cleanup started")
-	logging.debug("Cleanup started")
+	logging.info("Cleanup started")
 	ut.cleanup("../csv_data", ".csv")
 	ut.cleanup("../output_graphs", ".png")
 

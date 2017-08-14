@@ -5,7 +5,6 @@ from pandas_datareader._utils import RemoteDataError
 from datetime import datetime
 from datetime import timedelta
 import logging
-logger = logging.getLogger(__name__)
 
 def get_stock_yahoo(stock, no_of_days=30):
 
