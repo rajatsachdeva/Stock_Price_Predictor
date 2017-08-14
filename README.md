@@ -22,4 +22,4 @@ Enter some stock symbol like GOOG, AAPL etc.
 
 Result will look like this :
 
-![2](screen_grabs/third.png?raw=true)
+![3](screen_grabs/third.png?raw=true)
