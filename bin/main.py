@@ -7,8 +7,10 @@ import signal
 import sys
 import time
 import fetch_csv as fc
+import utils as ut
 from tweet_analyser import TwitterClient
 import logging
+import log_init
 
 # Signal Handler
 def exit_gracefully(signum, frame):
@@ -32,6 +34,7 @@ def main():
 	
 	# store the original SIGINT handler
 	original_sigint = signal.getsignal(signal.SIGINT)
+	log_init.initialize_logger('../log')
 
 	print("Starting Stock Price Prediction Program...\n")
 	# Go in Event Loop
@@ -39,25 +42,23 @@ def main():
 
 		# Take input query from user 
 		stock = input("\nEnter Stock Symbol (Like GOOG, AAPL etc.): ")
+		days = int(input("\nEnter number of days for which data is to fetched: "))
 
-		# Fetch stock csv from google finance
-		fc.fetch_stock_csv(stock)
+		result, ptweets, ntweets, predicted_price_rbf, predicted_price_keras = ut.stock_price_predictor(stock, days)
 
-		# creating object of TwitterClient Class
-		api = TwitterClient()
+		if result:
+			print("\n**** RESULT *****\n")
+			print("Postive Tweets: {}".format(len(ptweets)))
+			print("Negative Tweets: {}".format(len(ntweets)))
+			print("Current price: {}".format(ut.get_recent_price(stock)))
+			print("\n ** Prediction **\n")
+			print("RBF: {}".format(predicted_price_rbf))
+			print("KERAS: {}".format(predicted_price_keras))
+		else:
+			print("\n Please validate the stock symbol/days input")
 
-		# calling function to get tweets
-		tweets = api.get_tweets(query = stock, count = 2000)
-
-		# picking positive tweets from tweets
-		ptweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
-
-		# picking negative tweets from tweets
-		ntweets = [tweet for tweet in tweets if tweet['sentiment'] == 'negative']
-
-		print("\nPostive Tweets: {}".format(len(ptweets)))
-		print("\nNegative Tweets: {}".format(len(ntweets)))
-
+	# End of while Loop		
+	
 	print("Exiting from program...")
 if __name__ == '__main__': 
 	main()
