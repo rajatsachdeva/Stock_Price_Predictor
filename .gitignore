@@ -3,3 +3,5 @@ csv_data/.DS_Store
 secret/auth.txt
 .DS_Store
 *.log
+*.csv
+*.log
