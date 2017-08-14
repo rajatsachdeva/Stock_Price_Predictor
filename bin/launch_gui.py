@@ -229,6 +229,10 @@ class simpleapp_tk():
 
 # Create Main()
 def main():
+	# Clear previous logging before starting the Application
+	with open('../log/stock_predictor.log', 'w'):
+		pass
+
 	FORMAT = '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)s - %(funcName)s()] - %(message)s'
 	logging.basicConfig(filename = "../log/stock_predictor.log", level=logging.DEBUG, format=FORMAT)
 
