@@ -25,7 +25,7 @@ import logging
 # List Stock Exchanges
 # Reference: https://en.wikipedia.org/wiki/List_of_stock_exchanges
 # You can add in the following list required stock exchanges
-stock_exchange = [ "NASDAQ", "NYSE", "NSE", "BSE"]
+stock_exchange = [ "NASDAQ", "NYSE", "CAC"]
 
 # base url for creating the google finance link
 base_url       = "https://www.google.com/finance/historical"
@@ -43,14 +43,15 @@ csv_file_location = "../csv_data/"
 def make_url(_stock, _stock_exchange = "NASDAQ", no_of_days=30):
 	global base_url
 
+	logging.info("Construct url")
 	# Get the current date in format Mon+day+year
 	enddate = datetime.now().strftime('%b+%-d+%Y')
-	print("enddate = {}".format(enddate))
+	logging.info("enddate = {}".format(enddate))
 
 	# Get 30 days before date from today in format Mon+day+year
 	startdate = datetime.now() - timedelta(days = no_of_days)
 	startdate = startdate.strftime('%b+%-d+%Y')
-	print("startdate = {}".format(startdate))
+	logging.info("startdate = {}".format(startdate))
 
 	full_url = base_url + "?q=" + _stock_exchange + "%3A" + _stock
 	full_url = full_url + "&startdate={}&enddate={}".format(startdate, enddate) + "&output=csv"
@@ -79,9 +80,9 @@ def check_if_fetched_stock_data(csvfilename):
 def fetch_stock_csv(stock, no_of_days):
 	for se in stock_exchange:
 		# construct url
-		print("Constructing url for stock: {} with stock exchange as {}".format(stock, se))
+		logging.info("Constructing url for stock: {} with stock exchange as {}".format(stock, se))
 		url = make_url(_stock = stock, _stock_exchange = str(se), no_of_days = no_of_days)
-		print("Fetching information for {} from \nurl: {}".format(stock, url))
+		logging.info("Fetching information for {} from \nurl: {}".format(stock, url))
 
 		# Fetch data from constructed url
 		fetch_csv(stock, url)
@@ -94,13 +95,13 @@ def fetch_stock_csv(stock, no_of_days):
 			Found = 1
 			break
 		else:
-			print("Error while fetching, checking from next stock exchange")
+			logging.warning("Error while fetching, checking from next stock exchange")
 
 	if Found:
-		print("csv file is saved at location " + csvfilename)
+		logging.info("csv file is saved at location " + csvfilename)
 		return True
 	else:
-		print("ERROR: Please validate the stock symbol/Update the Stock Exchange list...")
+		logging.warning("ERROR: Please validate the stock symbol/Update the Stock Exchange list...")
 		return False
 			
 if __name__ == "__main__":

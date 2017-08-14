@@ -31,7 +31,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 # Fetch the access token and consumer key from secret folder
 def fetch_secret():
-	print("Fetching Secret...")
+	logging.info("Fetching Secret...")
 	f = open(SECRETFILEPATH, 'r')
 	authdict = {}
 
@@ -69,8 +69,8 @@ def predict_rbf(stock, dates, prices, x):
 	plt.title('Support Vector Regression')
 	plt.legend()
 	plt.savefig("../output_graphs/{}_rbf.png".format(stock))
-	print("Graph saved as {}_rbf.jpg in ../output_graphs".format(stock))
-	print("RBF: Last price was {} , predicted price is {}".format(prices[len(prices)-1], svr_rbf.predict(x)[0]))
+	logging.info("Graph saved as {}_rbf.jpg in ../output_graphs".format(stock))
+	logging.info("RBF: Last price was {} , predicted price is {}".format(prices[len(prices)-1], svr_rbf.predict(x)[0]))
 	return svr_rbf.predict(x)[0]
 
 # Prediction using Keras
@@ -80,8 +80,7 @@ def predict_keras(stock):
 
 	# Collect data points from csv
 	dataset = []
-
-	print("Getting dataset from csv file")
+	logging.info("Getting dataset from csv file")
 	with open("../csv_data/{}.csv".format(stock)) as f:
 		for n, line in enumerate(f):
 			if n != 0:
@@ -127,7 +126,7 @@ def predict_keras(stock):
 	rgb_im = im.convert('RGB')
 	rgb_im.save("../output_graphs/{}_keras.jpg".format(stock),'JPEG')
 	plt.clf()
-	print('The price will move from %s to %s' % (dataset[0], prediction[0][0]))
+	logging.info('The price will move from %s to %s' % (dataset[0], prediction[0][0]))
 
 	result = prediction[0][0]
 	return result

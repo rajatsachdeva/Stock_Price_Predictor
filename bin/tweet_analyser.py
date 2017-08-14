@@ -17,10 +17,11 @@ class TwitterClient (object):
 		# Get access to twitter api
 		self.auth = ut.fetch_secret()
 
-		# create tweepy API object to fetch tweets
-		print ("Initializing handshake with twitter...")
-
+		# Authenticate with twitter
+		logging.info("Initializing handshake with twitter...")
 		self.api = tweepy.API(self.auth)
+		logging.info("Auhentication successful")
+
 		
 	def clean_tweet(self, tweet):
 		"""
@@ -79,25 +80,21 @@ class TwitterClient (object):
 
 		except tweepy.TweepError as e:
 		# print error (if any)
-			print("Error : " + str(e))
+			logging.error("Error : " + str(e))
 
 # Signal Handler
 def exit_gracefully(signum, frame):
     # restore the original signal handler as otherwise evil things will happen
-    # in raw_input when CTRL+C is pressed, and our signal handler is not re-entrant
+    # in input when CTRL+C is pressed, and our signal handler is not re-entrant
 	signal.signal(signal.SIGINT, original_sigint)
 	global f
 	try:
 		if input("\nReally quit? (y/n)> ").lower().startswith('y'):
-			print("Shutting down...")
-#			f.close()
-#			ut.GetNumOfTweets()
-			#stream.disconnect()
+			logging.info("Shutting down...")
 			sys.exit(1)
 
 	except KeyboardInterrupt:
 		print("Ok ok, quitting")
-#		f.close()
 		sys.exit(1)
 
 # restore the exit gracefully handler here    

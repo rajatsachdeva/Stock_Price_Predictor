@@ -79,11 +79,9 @@ def stock_price_predictor(stock, no_of_days=30, mode='both'):
 	# Reverse the list entries to represent from start to today
 	prices = prices[::-1]
 
-	# print the predicted prices from rbf, Keras
+	# get the predicted prices from rbf, Keras
 	predict_price(stock, dates, prices, len(prices) + 1, mode)
-
-	print("\nPrediction from RBF : {}".format(predicted_price_rbf))
-
+	logging.info("\nPrediction from RBF : {}".format(predicted_price_rbf))
 	return True
 
 # Create a Class for GUI
@@ -147,10 +145,9 @@ class simpleapp_tk():
 		logging.info("GUI init successful")
 
 	def OnButtonClick(self):
+		logging.info("EVENT: Button was clicked")
 		stock = self.entry_stock_name.get().upper()
 		days = self.entry_days.get()
-
-		logging.info("EVENT: Button was clicked")
 
 		# Validate input variable 
 		result, output, days = self.validate_text_entry(stock, days)
@@ -158,7 +155,6 @@ class simpleapp_tk():
 		if result:
 			logging.info("stock name is {}".format(stock))
 			logging.info("Number of days :{}".format(days))
-
 			logging.debug("send parameters for computation")
 			self.generate_output(stock, days)
 
@@ -166,7 +162,7 @@ class simpleapp_tk():
 			self.labelVariable.set(output)
 	
 	def OnPressEnter(self,event):
-
+		logging.info("EVENT: Enter was pressed")
 		stock = self.entry_stock_name.get().upper()
 		days  = self.entry_days.get()
 
@@ -174,12 +170,11 @@ class simpleapp_tk():
 		result, output, days = self.validate_text_entry(stock, days)
 
 		if result:
-			print("stock name is {}".format(stock))
-			print("Number of days :{}".format(days))
-			
+			logging.info("stock name is {}".format(stock))
+			logging.info("Number of days :{}".format(days))
+			logging.debug("send parameters for computation")
 			self.generate_output(stock, days)
-			print ("You pressed enter !")
-
+			
 		else:
 			self.labelVariable.set(output)
 
@@ -195,13 +190,13 @@ class simpleapp_tk():
 			days = int(days)
 
 		if stock == '':
-			print("ERROR: User entered empty Stock Symbol")
+			logging.warning("ERROR: User entered empty Stock Symbol")
 			out = out + "Error: Please Enter a valid Stock Symbol"
 			return False, out, days
 
 		if days == 30:
 			out = "INFO: Program will continue to compute data for past 30 days as default"
-			print(out)
+			logging.warning(out)
 			return True, out, days
 			
 		return result, out, days
