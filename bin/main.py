@@ -44,9 +44,11 @@ def main():
 		stock 	= input("\nEnter Stock Symbol (Like GOOG, AAPL etc.): ")
 		days 	= int(input("\nEnter number of days for which data is to fetched: "))
 
-		result, ptweets, ntweets, predicted_price_rbf, predicted_price_keras = ut.stock_price_predictor(stock, days)
+		result, conn_error, ptweets, ntweets, predicted_price_rbf, predicted_price_keras = ut.stock_price_predictor(stock, days)
 
-		if result:
+		if conn_error & (not result):
+			print("Connection Error: Please check you Internet Connection")
+		elif result & (not conn_error):
 			print("\n**** RESULT *****\n")
 			print("Postive Tweets: {}".format(len(ptweets)))
 			print("Negative Tweets: {}".format(len(ntweets)))
