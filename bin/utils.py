@@ -39,8 +39,8 @@ CSV_LOG_FILE_PATH	= "../log/log.csv"
 OUTPUT_GRAPH_PATH 	= "../output_graphs/"
 
 # RBF/KERAS image Name
-RBF_FN 				= "{}_rbf.png"
-KERAS_FN_PNG 		= "{}_keras.png"
+RBF_FN				= "{}_rbf.png"
+KERAS_FN_PNG		= "{}_keras.png"
 KERAS_FN_JPG		= "{}_keras.jpg"
 TREND_FN			= "{}_trend.png"
 
