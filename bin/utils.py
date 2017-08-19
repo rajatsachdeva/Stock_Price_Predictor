@@ -169,6 +169,12 @@ def cleanup(directory, extension):
 		if item.endswith(extension):
 			os.remove(join(directory, item))
 
+# predict_price
+# IN
+#	- stock 	: stock symnol like GOOG, AAPL etc.
+#	- dates 	: dates list
+# 	- price_list: list of prices for the stock
+# 	- x			: Date for which the price is to be predicted
 def predict_price(stock, dates, price_list, x, mode='both'):
 	logging.info("Length of price list is {}".format(len(price_list)))
 	# Plot Trend for stock 
@@ -231,7 +237,7 @@ def stock_price_predictor(stock, no_of_days=30, mode='both'):
 	prices 	= prices[::-1]
 
 	# get the predicted prices from rbf, Keras
-	predicted_price_rbf ,predicted_price_keras = predict_price(stock, dates, prices, len(prices) + 1, mode)
+	predicted_price_rbf ,predicted_price_keras = predict_price(stock, dates, prices, len(prices), mode)
 	logging.info("\n*** RESULT ***\nPrediction from RBF : {}".format(predicted_price_rbf))
 	logging.info("Prediction from keras: {}".format(predicted_price_keras))
 	# return result
