@@ -206,12 +206,22 @@ def stock_price_predictor(stock, no_of_days=30, mode='both'):
 	predicted_price_rbf 	= 0.0
 	predicted_price_keras	= 0.0
 
+	# connection error
+	conn_error				= False
+
 	# Fetch stock csv from google finance if not present there, then from yahoo finance
-	if not fc.fetch_stock_csv(stock, no_of_days):
+	result , conn_error = fc.fetch_stock_csv(stock, no_of_days)
+
+	# Check if there is connection error 
+	if conn_error:
+		logging.warning("Error while fetching data: No Internet Connection")
+		return False, conn_error, ptweets, ntweets, predicted_price_rbf, predicted_price_keras
+
+	if not result:
 		logging.warning("Error while fetching stock ({}) data from google.Trying from yahoo".format(stock))
 		if not fcy.get_stock_yahoo(stock, no_of_days):
 			logging.warning("Error while fetching stock from yahoo")
-			return False, ptweets, ntweets, predicted_price_rbf, predicted_price_keras
+			return False, conn_error, ptweets, ntweets, predicted_price_rbf, predicted_price_keras
 
 	logging.info("*** Tweets fetching ***")
 	# creating object of TwitterClient Class
@@ -241,7 +251,7 @@ def stock_price_predictor(stock, no_of_days=30, mode='both'):
 	logging.info("\n*** RESULT ***\nPrediction from RBF : {}".format(predicted_price_rbf))
 	logging.info("Prediction from keras: {}".format(predicted_price_keras))
 	# return result
-	return True, ptweets, ntweets, predicted_price_rbf, predicted_price_keras 
+	return True, conn_error, ptweets, ntweets, predicted_price_rbf, predicted_price_keras 
 
 def get_recent_price(stock):
 	logging.info("fetching the last open price for {}".format(stock))

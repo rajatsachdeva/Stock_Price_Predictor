@@ -18,9 +18,11 @@
 import os
 import csv
 import requests
+from requests.exceptions import ConnectionError
 from datetime import datetime
 from datetime import timedelta
 import logging
+
 
 # List Stock Exchanges
 # Reference: https://en.wikipedia.org/wiki/List_of_stock_exchanges
@@ -28,7 +30,7 @@ import logging
 stock_exchange 		= [ "NASDAQ", "NYSE", "CAC"]
 
 # base url for creating the google finance link
-base_url       		= "https://www.google.com/finance/historical"
+base_url       		= "http://www.google.com/finance/historical"
 
 # CSV file save location
 csv_file_location 	= "../csv_data/"
@@ -59,10 +61,18 @@ def make_url(_stock, _stock_exchange = "NASDAQ", no_of_days=30):
 
 # Function to fetch the csv file from google finance and save in 
 def fetch_csv(stock, url):
-	response = requests.get(url)
-	with open(os.path.join("../csv_data", "{}.csv".format(stock)), 'wb') as f:
-		f.write(response.content)
-	f.close()
+	conn_error = False
+	try:
+		response = requests.get(url)
+		with open(os.path.join("../csv_data", "{}.csv".format(stock)), 'wb') as f:
+			f.write(response.content)
+		f.close()
+		return conn_error
+
+	except ConnectionError: 
+		logging.warning("Seems to a Connection Error")
+		conn_error = True
+		return conn_error
 
 # Function to check if stock data was fetched correctly
 def check_if_fetched_stock_data(csvfilename):
@@ -77,15 +87,20 @@ def check_if_fetched_stock_data(csvfilename):
 			f.close()
 			return True
 
-def fetch_stock_csv(stock, no_of_days):
+def fetch_stock_csv(stock, no_of_days=30):
 	for se in stock_exchange:
+
+		conn_error = False
+
 		# construct url
 		logging.info("Constructing url for stock: {} with stock exchange as {}".format(stock, se))
 		url = make_url(_stock = stock, _stock_exchange = str(se), no_of_days = no_of_days)
 		logging.info("Fetching information for {} from \nurl: {}".format(stock, url))
 
 		# Fetch data from constructed url
-		fetch_csv(stock, url)
+		conn_error = fetch_csv(stock, url)
+		if conn_error:
+			return False, conn_error
 
 		Found = 0
 
@@ -99,11 +114,11 @@ def fetch_stock_csv(stock, no_of_days):
 
 	if Found:
 		logging.info("csv file is saved at location " + csvfilename)
-		return True
+		return True, conn_error
 	else:
 		logging.warning("ERROR: Please validate the stock symbol/Update the Stock Exchange list...")
-		return False
+		return False, conn_error
 			
 if __name__ == "__main__":
 	stock = input("Enter Stock Symbol (Like: GOOG, AAPL, etc): ").upper()
-	fetch_stock_csv(stock)
+	print (fetch_stock_csv(stock))

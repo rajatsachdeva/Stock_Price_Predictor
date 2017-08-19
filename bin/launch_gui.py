@@ -138,7 +138,15 @@ class simpleapp_tk():
 		self.labelVariable.set("Please wait while we fetch response")
 
 		# get the result from stock price pridector
-		result, ptweets, ntweets, predicted_price_rbf, predicted_price_keras = ut.stock_price_predictor(stock, days)
+		result, conn_error, ptweets, ntweets, predicted_price_rbf, predicted_price_keras = ut.stock_price_predictor(stock, days)
+
+		# check if there was a connection error
+		if conn_error:
+			logging.warning("Internet Connection error detected")
+			out = "Connection Error: Please check your internet connection"
+			logging.info(out)
+			self.labelVariable.set(out)
+			return
 
 		# call the Stock Predictor
 		if not result:
