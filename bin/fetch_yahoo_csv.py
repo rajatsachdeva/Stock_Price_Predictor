@@ -16,7 +16,7 @@ def get_stock_yahoo(stock, no_of_days=30):
 	try:
 		web.DataReader(stock, 'yahoo', startdate, enddate).to_csv('../csv_data/{}.csv'.format(stock))
 		logging.debug("got the data from yahoo finance")
-		logging.indo("csv file saved as ../csv_data/{}.csv".format(stock))
+		logging.info("csv file saved as ../csv_data/{}.csv".format(stock))
 		return True
 
 	except RemoteDataError as e:
